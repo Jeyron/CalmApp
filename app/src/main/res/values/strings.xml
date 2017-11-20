@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Calmapp</string>
+    <string name="title_activity_navegacion">Navegacion</string>
+    <string name="action_settings">Menu</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+
+    <string name="incio">Menu</string>
+
 </resources>

@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.jeiro.calmapp.Navegacion">
+
+    <item
+        android:id="@+id/sensor_temperatura"
+        android:orderInCategory="100"
+        android:title="Temperatura"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/sensor_humedad"
+        android:orderInCategory="100"
+        android:title="Humedad"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/datos_sistema"
+        android:orderInCategory="100"
+        android:title="Estado del sistema"
+        app:showAsAction="never" />
+
+
+</menu>
