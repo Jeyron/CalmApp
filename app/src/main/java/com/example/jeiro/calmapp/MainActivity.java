@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.example.jeiro.calmapp.Negocio.Function;
 
+import java.io.File;
+
 import  static android.hardware.Sensor.TYPE_LIGHT;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     static final int REQUEST_PERMISSION_KEY = 1;
 
     Button btn_inicio;
+    public static String rutaProyecto;
+    public static int categoria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +51,16 @@ public class MainActivity extends AppCompatActivity {
         });
         String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION};
         if(!Function.hasPermissions(this, PERMISSIONS))
-            ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_PERMISSION_KEY);
+            ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA}, REQUEST_PERMISSION_KEY);
+
+        File carpetaContenedora = new File(getExternalFilesDir(null), "Calmapp");//context.getDir( "OrganizApp", Context.MODE_PRIVATE);
+
+        if (!carpetaContenedora.exists())
+        {
+            carpetaContenedora.mkdirs();
+            Toast.makeText(this,"Carpeta creada", Toast.LENGTH_SHORT).show();
+        }
+        rutaProyecto = carpetaContenedora.getAbsolutePath().toString();
     }
 }
 
