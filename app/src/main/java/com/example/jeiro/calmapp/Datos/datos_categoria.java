@@ -96,4 +96,15 @@ public class datos_categoria
         }
         return true;
     }
+
+    public entidad_categoria obtener_categoria (Context context, String descripcion)
+    {
+        ArrayList<entidad_categoria> datos = obtener_categorias(context);
+        for (entidad_categoria temp : datos)
+        {
+            if(temp.getDescripcion().equals(descripcion))
+                return temp;
+        }
+        return null;
+    }
 }
