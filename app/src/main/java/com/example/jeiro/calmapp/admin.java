@@ -19,14 +19,6 @@ import com.example.jeiro.calmapp.Modelo.entidad_categoria;
 import java.util.ArrayList;
 
 public class admin extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
@@ -76,6 +68,7 @@ public class admin extends Fragment {
         datos_categoria datos_categoria = new datos_categoria();
         String selected_item = spn_lista_categorias.getSelectedItem().toString();
         entidad_categoria entidad_categoria = datos_categoria.obtener_categoria(getActivity(), selected_item);
+
         datos_contenido datos_iconos = new datos_contenido();
         ArrayList<entidad_categoria> lista_categorias = datos_categoria.obtener_categorias(getActivity());
         String array_categorias[] = new String[lista_categorias.size()];
