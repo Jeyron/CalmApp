@@ -76,9 +76,9 @@
                 android:background="@drawable/boton_redondeado"
                 android:textSize="15sp"
                 android:textColor="@color/colorBlanco"
-                android:layout_alignBaseline="@+id/btn_eliminar_categoria"
                 android:layout_alignBottom="@+id/btn_eliminar_categoria"
-                android:layout_alignEnd="@+id/txt_descripcion" />
+                android:layout_toEndOf="@+id/btn_eliminar_categoria"
+                android:layout_marginStart="21dp" />
 
             <TextView
                 android:id="@+id/textView4"
