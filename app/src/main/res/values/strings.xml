@@ -1,23 +1,45 @@
 <resources>
-    <string name="app_name">Calmapp</string>
+    <string name="app_name">CalmApp</string>
     <string name="title_activity_navegacion">Navegacion</string>
     <string name="action_settings">Menu</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
-
-
     <string name="incio">Menu</string>
 
+    <string name="lbl_descripcion">Descripción:</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="btn_agregar">Agregar</string>
+    <string name="btn_eliminar">Elimianr</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="lista_iconos">Lista de iconos:</string>
+    <string name="lbl_comenzar">Comenzar</string>
+    <string name="derechos">Todos los derechos reservados</string>
 
-    <string name="used">Used:</string>
 
-    <string name="free">Free:</string>
 
-    <string name="total">Total:</string>
+    <string name="lbl_cpu">Uso del CPU:</string>
 
-    <string name="free_space">393.89 MB</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="lbl_memoria">Uso de memoria</string>
+    <string name="lbl_memoria_total">Memoria total:</string>
+    <string name="lbl_memoria_usada">Memoria usada:</string>
+    <string name="lbl_memoria_libre">Memoria libre:</string>
+
+
+    <string name="lbl_bateria">Nivel de batería:</string>
+    <string name="lbl_sistema_operativo">Versión del S.O:</string>
+
+    <string name="lbl_alma_interno">Alamacenamiento interno</string>
+    <string name="lbl_almacenamiento_total">Memoria total:</string>
+    <string name="lbl_almacenamiento_libre">Memoria libre:</string>
+    <string name="lbl_almacenamiento_usado">Memora usada:</string>
+
+    <string name="lbl_alma_externo">Alamacenamiento externo:</string>
+
+
+
+
+
+
+
 
 </resources>
