@@ -14,9 +14,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class base_de_datos extends SQLiteOpenHelper
 {
-    private static final String TEXT_TYPE = " TEXT";
+    private static final String TEXT_TYPE   = " TEXT";
     private static final String NUMBER_TYPE = " INTEGER";
-    private static final String FLOAT_TYPE = " REAL";
+    private static final String REAL_TYPE   = " REAL";
 
     private static final String COMMA_SEP = ",";
 
@@ -31,49 +31,35 @@ public class base_de_datos extends SQLiteOpenHelper
     private static final String DELETE_TABLA_CATEGORIA =
             "DROP TABLE IF EXISTS " + tablas.tabla_categoria.TABLE_NAME;
 
-    private static final String CREAR_TABLA_ICONO =
-            "CREATE TABLE " +
-                    tablas.tabla_iconos.TABLE_NAME +
-                    " (" +
-                    tablas.tabla_iconos._ID + " INTEGER PRIMARY KEY," +
-                    tablas.tabla_iconos.COLUMN_NAME_CAT      + NUMBER_TYPE + COMMA_SEP +
-                    tablas.tabla_iconos.COLUMN_NAME_NOMBRE   + TEXT_TYPE   +
-                    " )";
-
-    private static final String DELETE_TABLA_ICONO =
-            "DROP TABLE IF EXISTS " + tablas.tabla_iconos.TABLE_NAME;
-
-    private static final String CREAR_TABLA_EVALUACION =
-            "CREATE TABLE " +
-                    tablas.tabla_evaluacion.TABLE_NAME +
-                    " (" +
-                    tablas.tabla_evaluacion._ID + " INTEGER PRIMARY KEY,"     +
-                    tablas.tabla_evaluacion.COLUMN_NAME_CURSO   + TEXT_TYPE   + COMMA_SEP +
-                    tablas.tabla_evaluacion.COLUMN_NAME_RUBRO   + TEXT_TYPE   + COMMA_SEP +
-                    tablas.tabla_evaluacion.COLUMN_NAME_VALOR   + FLOAT_TYPE  + COMMA_SEP +
-                    tablas.tabla_evaluacion.COLUMN_NAME_NIVEL   + NUMBER_TYPE + COMMA_SEP +
-                    tablas.tabla_evaluacion.COLUMN_NAME_PERIODO + TEXT_TYPE   +
-                    " )";
-
-    private static final String DELETE_TABLA_EVALUACION =
-            "DROP TABLE IF EXISTS " + tablas.tabla_evaluacion.TABLE_NAME;
-
     private static final String CREAR_TABLA_CONTENIDO =
             "CREATE TABLE " +
                     tablas.tabla_contenido.TABLE_NAME +
                     " (" +
                     tablas.tabla_contenido._ID + " INTEGER PRIMARY KEY," +
-                    tablas.tabla_contenido.COLUMN_NAME_CURSO   + TEXT_TYPE + COMMA_SEP +
-                    tablas.tabla_contenido.COLUMN_NAME_TIPO    + TEXT_TYPE + COMMA_SEP +
-                    tablas.tabla_contenido.COLUMN_NAME_NOMBRE  + TEXT_TYPE + COMMA_SEP +
-                    tablas.tabla_contenido.COLUMN_NAME_PERIODO + TEXT_TYPE + COMMA_SEP +
-                    tablas.tabla_contenido.COLUMN_NAME_FECHA + TEXT_TYPE +
+                    tablas.tabla_contenido.COLUMN_NAME_CAT      + NUMBER_TYPE + COMMA_SEP +
+                    tablas.tabla_contenido.COLUMN_NAME_NOMBRE   + TEXT_TYPE   + COMMA_SEP +
+                    tablas.tabla_contenido.COLUMN_NAME_TIPO     + NUMBER_TYPE   +
                     " )";
 
     private static final String DELETE_TABLA_CONTENIDO =
             "DROP TABLE IF EXISTS " + tablas.tabla_contenido.TABLE_NAME;
 
-    public static final int DATABASE_VERSION = 3;
+    private static final String DELETE_TABLA_SITIO =
+            "DROP TABLE IF EXISTS " + tablas.tabla_sitio.TABLE_NAME;
+
+    private static final String CREAR_TABLA_SITIO =
+            "CREATE TABLE " +
+                    tablas.tabla_sitio.TABLE_NAME +
+                    " (" +
+                    tablas.tabla_sitio._ID + " INTEGER PRIMARY KEY," +
+                    tablas.tabla_sitio.COLUMN_NAME_LATITUD  + REAL_TYPE   + COMMA_SEP +
+                    tablas.tabla_sitio.COLUMN_NAME_LONGITUD + REAL_TYPE   + COMMA_SEP +
+                    tablas.tabla_sitio.COLUMN_NAME_NOMBRE   + TEXT_TYPE   + COMMA_SEP +
+                    tablas.tabla_sitio.COLUMN_NAME_CAT      + NUMBER_TYPE + COMMA_SEP +
+                    tablas.tabla_sitio.COLUMN_NAME_TELEFONO + NUMBER_TYPE   +
+                    " )";
+
+    public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "Organizate.db";
 
     public base_de_datos(Context context)
@@ -83,16 +69,14 @@ public class base_de_datos extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         db.execSQL(CREAR_TABLA_CATEGORIA);
-        db.execSQL(CREAR_TABLA_ICONO);
-        db.execSQL(CREAR_TABLA_EVALUACION);
         db.execSQL(CREAR_TABLA_CONTENIDO);
+        db.execSQL(CREAR_TABLA_SITIO);
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
         db.execSQL(DELETE_TABLA_CATEGORIA);
-        db.execSQL(DELETE_TABLA_ICONO);
-        db.execSQL(DELETE_TABLA_EVALUACION);
         db.execSQL(DELETE_TABLA_CONTENIDO);
+        db.execSQL(DELETE_TABLA_SITIO);
         onCreate(db);
     }
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
