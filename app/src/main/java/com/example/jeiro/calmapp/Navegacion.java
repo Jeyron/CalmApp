@@ -1,5 +1,6 @@
 package com.example.jeiro.calmapp;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -55,11 +56,12 @@ public class Navegacion extends AppCompatActivity {
         if (id == R.id.sensor_temperatura) {
             return true;
         }
-        if (id == R.id.sensor_temperatura) {
+        if (id == R.id.sensor_humedad) {
             return true;
         }
         if (id == R.id.datos_sistema) {
-            return true;
+            Intent intent= new Intent(Navegacion.this,Stats.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
