@@ -1,17 +1,21 @@
 package com.example.jeiro.calmapp;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.jeiro.calmapp.Negocio.Function;
 
 import  static android.hardware.Sensor.TYPE_LIGHT;
 
@@ -22,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private SensorEventListener lightEventListener;
     private View root;
     private float maxValue;
+    static final int REQUEST_PERMISSION_KEY = 1;
 
     Button btn_inicio;
 
@@ -40,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION};
+        if(!Function.hasPermissions(this, PERMISSIONS))
+            ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_PERMISSION_KEY);
     }
 }
 

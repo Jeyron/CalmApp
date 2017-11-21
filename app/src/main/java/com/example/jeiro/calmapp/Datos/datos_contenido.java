@@ -24,7 +24,7 @@ public class datos_contenido
     try
     {
         ContentValues values = new ContentValues();
-        values.put(tablas.tabla_contenido.COLUMN_NAME_CAT,    contenido.getCategoria());
+        values.put(tablas.tabla_contenido.COLUMN_NAME_SITIO,    contenido.getCategoria());
         values.put(tablas.tabla_contenido.COLUMN_NAME_NOMBRE, contenido.getNombre());
         values.put(tablas.tabla_contenido.COLUMN_NAME_TIPO,   contenido.getTipo());
         if (insertar) // insertar

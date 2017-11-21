@@ -10,13 +10,22 @@ public class entidad_categoria implements Serializable
 {
     private int Id;
     private String Descripcion;
+    private int Icono;
 
-    public entidad_categoria() {}
+    public int getIcono() {
+        return Icono;
+    }
 
-    public entidad_categoria(int id,String descripcion)
+    public void setIcono(int icono) {
+        Icono = icono;
+    }
+
+    public entidad_categoria(int id, String descripcion, int icono)
     {
         Id = id;
         Descripcion = descripcion;
+        Icono = icono;
+
     }
 
     public int getId() {

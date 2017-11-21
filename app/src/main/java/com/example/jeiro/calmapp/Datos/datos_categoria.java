@@ -26,6 +26,7 @@ public class datos_categoria
         {
             ContentValues values = new ContentValues();
             values.put(tablas.tabla_categoria.COLUMN_NAME_DESCRIPCION,  categoria.getDescripcion());
+            values.put(tablas.tabla_categoria.COLUMN_NAME_ICONO,  categoria.getIcono());
             if (insertar) // insertar
             {
                 SQLiteDatabase db = helper.getWritableDatabase();
@@ -67,7 +68,7 @@ public class datos_categoria
             if (c.moveToFirst())
                 do
                 {
-                    entidad_categoria a = new entidad_categoria(c.getInt(0), c.getString(1));
+                    entidad_categoria a = new entidad_categoria(c.getInt(0), c.getString(1), c.getInt(2));
                     datos.add(a);
                 } while (c.moveToNext());
         }
@@ -88,7 +89,7 @@ public class datos_categoria
             SQLiteDatabase db = helper.getWritableDatabase();
             String whereClause = "_id=?";
             String[] whereArgs = new String[] { String.valueOf(categoria.getId()) };
-            db.delete(tablas.tabla_contenido.TABLE_NAME, whereClause, whereArgs);
+            db.delete(tablas.tabla_categoria.TABLE_NAME, whereClause, whereArgs);
         }
         catch (Exception exc)
         {
@@ -103,6 +104,17 @@ public class datos_categoria
         for (entidad_categoria temp : datos)
         {
             if(temp.getDescripcion().equals(descripcion))
+                return temp;
+        }
+        return null;
+    }
+
+    public entidad_categoria obtener_categoria_por_id (Context context, int id)
+    {
+        ArrayList<entidad_categoria> datos = obtener_categorias(context);
+        for (entidad_categoria temp : datos)
+        {
+            if(temp.getId() == id)
                 return temp;
         }
         return null;

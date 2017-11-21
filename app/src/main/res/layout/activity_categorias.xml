@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.jeiro.calmapp.admin">
+    tools:context="com.example.jeiro.calmapp.Categorias">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lbl_descripcion"
+                android:text="Descripción:"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 android:layout_marginStart="10dp"
@@ -47,19 +47,19 @@
                 android:id="@+id/btn_agregar_categoria"
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_agregar"
+                android:text="Agregar"
                 android:background="@drawable/boton_redondeado"
                 android:textSize="15sp"
                 android:textColor="@color/colorBlanco"
-                android:layout_below="@+id/txt_descripcion"
-                android:layout_alignStart="@+id/txt_descripcion"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="23dp"
+                android:layout_below="@+id/spn_lista_iconos"
+                android:layout_alignStart="@+id/spn_lista_iconos" />
 
             <Button
                 android:id="@+id/btn_eliminar_categoria"
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_eliminar"
+                android:text="Eliminar"
                 android:background="@drawable/boton_redondeado"
                 android:textSize="15sp"
                 android:textColor="@color/colorBlanco"
@@ -71,7 +71,7 @@
                 android:id="@+id/btn_guardar_categoria"
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_guardar"
+                android:text="Guardar"
                 android:background="@drawable/boton_redondeado"
                 android:textSize="15sp"
                 android:textColor="@color/colorBlanco"
@@ -83,12 +83,12 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lista_iconos"
+                android:text="Lista de iconos:"
                 android:textSize="25dp"
                 android:textStyle="bold"
-                android:layout_below="@+id/btn_agregar_categoria"
-                android:layout_alignStart="@+id/btn_agregar_categoria"
-                android:layout_marginTop="47dp" />
+                android:layout_marginTop="29dp"
+                android:layout_below="@+id/txt_descripcion"
+                android:layout_alignStart="@+id/txt_descripcion" />
 
             <Spinner
                 android:id="@+id/spn_lista_iconos"
@@ -98,45 +98,6 @@
                 android:layout_below="@+id/textView4"
                 android:layout_alignEnd="@+id/btn_guardar_categoria"
                 android:layout_alignStart="@+id/textView4" />
-
-            <Button
-                android:id="@+id/btn_agregar_icono"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_agregar"
-                android:background="@drawable/boton_redondeado"
-                android:textSize="15sp"
-                android:textColor="@color/colorBlanco"
-                android:layout_below="@+id/spn_lista_iconos"
-                android:layout_alignStart="@+id/spn_lista_iconos"
-                android:layout_marginTop="23dp"
-                android:layout_alignEnd="@+id/btn_agregar_categoria" />
-
-            <Button
-                android:id="@+id/btn_eliminar_icono"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_eliminar"
-                android:background="@drawable/boton_redondeado"
-                android:textSize="15sp"
-                android:textColor="@color/colorBlanco"
-                android:layout_alignBaseline="@+id/btn_agregar_icono"
-                android:layout_alignBottom="@+id/btn_agregar_icono"
-                android:layout_alignStart="@+id/btn_eliminar_categoria"
-                android:layout_alignEnd="@+id/btn_eliminar_categoria" />
-
-            <Button
-                android:id="@+id/btn_guardar_icono"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_guardar"
-                android:background="@drawable/boton_redondeado"
-                android:textSize="15sp"
-                android:textColor="@color/colorBlanco"
-                android:layout_alignBaseline="@+id/btn_eliminar_icono"
-                android:layout_alignBottom="@+id/btn_eliminar_icono"
-                android:layout_alignEnd="@+id/spn_lista_iconos"
-                android:layout_alignStart="@+id/btn_guardar_categoria" />
 
         </RelativeLayout>
 

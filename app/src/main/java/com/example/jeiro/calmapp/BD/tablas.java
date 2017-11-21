@@ -12,15 +12,16 @@ public final class tablas
     public static class tabla_categoria implements BaseColumns
     {
         public static final String TABLE_NAME               = "Categoria";    //
-        public static final String COLUMN_NAME_DESCRIPCION  = "Descripcion";// 5
+        public static final String COLUMN_NAME_DESCRIPCION  = "Descripcion";  // 1
+        public static final String COLUMN_NAME_ICONO        = "Icono";        // 2
     }
 
     public static class tabla_contenido implements BaseColumns
     {
-        public static final String TABLE_NAME           = "Contenido";   //
-        public static final String COLUMN_NAME_CAT      = "Categoria";   // 1
-        public static final String COLUMN_NAME_NOMBRE   = "Nombre";      // 2
-        public static final String COLUMN_NAME_TIPO     = "Tipo";      // 2
+        public static final String TABLE_NAME           = "Contenido";  //
+        public static final String COLUMN_NAME_SITIO    = "Sitio";      // 1
+        public static final String COLUMN_NAME_NOMBRE   = "Nombre";     // 2
+        public static final String COLUMN_NAME_TIPO     = "Tipo";       // 3
     }
 
     public static class tabla_sitio implements BaseColumns

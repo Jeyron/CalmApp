@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.jeiro.calmapp.BD.base_de_datos;
 import com.example.jeiro.calmapp.BD.tablas;
+import com.example.jeiro.calmapp.Modelo.entidad_categoria;
 import com.example.jeiro.calmapp.Modelo.entidad_sitio;
 
 import java.util.ArrayList;
@@ -71,7 +72,7 @@ public class datos_sitio
             if (c.moveToFirst())
                 do
                 {
-                    entidad_sitio a = new entidad_sitio(c.getInt(0), c.getFloat(1), c.getFloat(2), c.getString(3), c.getString(4), c.getInt(5));
+                    entidad_sitio a = new entidad_sitio(c.getInt(0), c.getDouble(1), c.getDouble(2), c.getString(3), c.getInt(4), c.getInt(5));
                     datos.add(a);
                 } while (c.moveToNext());
         }
@@ -99,6 +100,26 @@ public class datos_sitio
             return false;
         }
         return true;
+    }
+
+    public ArrayList<entidad_sitio> obtener_sitios_por_categoria (Context context, entidad_categoria categoria)
+    {
+        ArrayList<entidad_sitio> datos = obtener_sitios(context);
+        ArrayList<entidad_sitio> resultado = new ArrayList<>();
+        for(entidad_sitio temp : datos)
+            if(temp.getCategoria() == categoria.getId())
+                resultado.add(temp);
+
+        return resultado;
+    }
+
+    public entidad_sitio obtener_sitio (Context context, String nombre)
+    {
+        ArrayList<entidad_sitio> datos = obtener_sitios(context);
+        for(entidad_sitio temp : datos)
+            if(temp.getNombre().equals(nombre))
+                return temp;
+        return null;
     }
 }
 

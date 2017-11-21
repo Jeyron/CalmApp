@@ -8,16 +8,16 @@ import java.io.Serializable;
 
 public class entidad_sitio implements Serializable {
     private int Id;
-    private float Latitud;
-    private float Longitud;
+    private double Latitud;
+    private double Longitud;
     private String Nombre;
-    private String Categoria;
+    private int Categoria;
     private int Telefono;
 
     public entidad_sitio() {
     }
 
-    public entidad_sitio(int id, float latitud, float longitud, String nombre, String categoria, int telefono) {
+    public entidad_sitio(int id, double latitud, double longitud, String nombre, int categoria, int telefono) {
         Id = id;
         Latitud = latitud;
         Longitud = longitud;
@@ -34,19 +34,19 @@ public class entidad_sitio implements Serializable {
         Id = id;
     }
 
-    public float getLatitud() {
+    public double getLatitud() {
         return Latitud;
     }
 
-    public void setLatitud(float latitud) {
+    public void setLatitud(double latitud) {
         Latitud = latitud;
     }
 
-    public float getLongitud() {
+    public double getLongitud() {
         return Longitud;
     }
 
-    public void setLongitud(float longitud) {
+    public void setLongitud(double longitud) {
         Longitud = longitud;
     }
 
@@ -58,11 +58,11 @@ public class entidad_sitio implements Serializable {
         Nombre = nombre;
     }
 
-    public String getCategoria() {
+    public int getCategoria() {
         return Categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(int categoria) {
         Categoria = categoria;
     }
 

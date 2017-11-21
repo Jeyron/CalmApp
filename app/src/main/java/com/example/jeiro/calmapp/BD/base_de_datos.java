@@ -25,7 +25,8 @@ public class base_de_datos extends SQLiteOpenHelper
                     tablas.tabla_categoria.TABLE_NAME +
                     " (" +
                     tablas.tabla_categoria._ID + " INTEGER PRIMARY KEY," +
-                    tablas.tabla_categoria.COLUMN_NAME_DESCRIPCION + TEXT_TYPE   +
+                    tablas.tabla_categoria.COLUMN_NAME_DESCRIPCION + TEXT_TYPE   + COMMA_SEP +
+                    tablas.tabla_categoria.COLUMN_NAME_ICONO       + NUMBER_TYPE +
                     " )";
 
     private static final String DELETE_TABLA_CATEGORIA =
@@ -36,9 +37,9 @@ public class base_de_datos extends SQLiteOpenHelper
                     tablas.tabla_contenido.TABLE_NAME +
                     " (" +
                     tablas.tabla_contenido._ID + " INTEGER PRIMARY KEY," +
-                    tablas.tabla_contenido.COLUMN_NAME_CAT      + NUMBER_TYPE + COMMA_SEP +
-                    tablas.tabla_contenido.COLUMN_NAME_NOMBRE   + TEXT_TYPE   + COMMA_SEP +
-                    tablas.tabla_contenido.COLUMN_NAME_TIPO     + NUMBER_TYPE   +
+                    tablas.tabla_contenido.COLUMN_NAME_SITIO  + NUMBER_TYPE + COMMA_SEP +
+                    tablas.tabla_contenido.COLUMN_NAME_NOMBRE + TEXT_TYPE   + COMMA_SEP +
+                    tablas.tabla_contenido.COLUMN_NAME_TIPO   + NUMBER_TYPE +
                     " )";
 
     private static final String DELETE_TABLA_CONTENIDO =
@@ -59,7 +60,7 @@ public class base_de_datos extends SQLiteOpenHelper
                     tablas.tabla_sitio.COLUMN_NAME_TELEFONO + NUMBER_TYPE   +
                     " )";
 
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "Organizate.db";
 
     public base_de_datos(Context context)
