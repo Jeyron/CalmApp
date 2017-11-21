@@ -1,7 +1,10 @@
 package com.example.jeiro.calmapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -107,4 +110,33 @@ public class Categorias extends AppCompatActivity
             Toast.makeText(this, "Error " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_navegacion, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.sensor_temperatura) {
+            return true;
+        }
+        if (id == R.id.sensor_temperatura) {
+            return true;
+        }
+        if (id == R.id.datos_sistema) {
+            Intent intent = new Intent(Categorias.this, Stats.class);
+            startActivity(intent);
+        }
+        if (id == R.id.opc_mapa) {
+            Intent intent = new Intent(Categorias.this, MapsActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }

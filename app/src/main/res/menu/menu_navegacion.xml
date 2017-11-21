@@ -4,6 +4,12 @@
     tools:context="com.example.jeiro.calmapp.Navegacion">
 
     <item
+        android:id="@+id/opc_mapa"
+        android:orderInCategory="100"
+        android:title="Mapa"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/sensor_temperatura"
         android:orderInCategory="100"
         android:title="Temperatura"

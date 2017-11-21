@@ -1,12 +1,9 @@
 package com.example.jeiro.calmapp;
 
-import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -27,40 +24,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.btn_categorias);
-        fab.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent intent= new Intent(MapsActivity.this, Categorias.class);
-                startActivity(intent);
-            }
-        });
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_navegacion, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.sensor_temperatura) {
-            return true;
-        }
-        if (id == R.id.sensor_temperatura) {
-            return true;
-        }
-        if (id == R.id.datos_sistema) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 
 
     /**
