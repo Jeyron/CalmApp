@@ -57,6 +57,15 @@ public class Categorias extends AppCompatActivity
             @Override public void onNothingSelected(AdapterView<?> arg0) { }
         });
 
+        btn_agregar_categoria.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+
+             }
+         });
+
         cargar_spinner_categorias();
         cargar_spinner_iconos();
     }
