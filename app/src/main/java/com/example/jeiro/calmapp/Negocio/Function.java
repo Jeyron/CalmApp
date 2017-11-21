@@ -1,14 +1,12 @@
 package com.example.jeiro.calmapp.Negocio;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
+import android.util.DisplayMetrics;
 
 import com.example.jeiro.calmapp.R;
-
-/**
- * Created by SHAJIB on 7/16/2017.
- */
 
 public class Function
 {
@@ -50,4 +48,11 @@ public class Function
                 return R.drawable.monumento;
         }
     }
+
+    public static float convertDpToPixel(float dp, Context context){
+    Resources resources = context.getResources();
+    DisplayMetrics metrics = resources.getDisplayMetrics();
+    float px = dp * (metrics.densityDpi / 160f);
+    return px;
+}
 }

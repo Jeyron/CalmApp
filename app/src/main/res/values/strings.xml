@@ -23,7 +23,6 @@
     <string name="lbl_memoria_usada">Memoria usada:</string>
     <string name="lbl_memoria_libre">Memoria libre:</string>
 
-
     <string name="lbl_bateria">Nivel de batería:</string>
     <string name="lbl_sistema_operativo">Versión del S.O:</string>
 
@@ -38,13 +37,5 @@
     <string name="lbl_editar_sitio">Editar sitio</string>
 
     <string name="lbl_categoria">Categoría</string>
-
-
-
-
-
-
-
-
 
 </resources>
