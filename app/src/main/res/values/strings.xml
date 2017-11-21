@@ -38,4 +38,6 @@
 
     <string name="lbl_categoria">Categoría</string>
 
+    <string name="lbl_nombre">Nombre</string>
+    <string name="lbl_telefono">Telefono</string>
 </resources>

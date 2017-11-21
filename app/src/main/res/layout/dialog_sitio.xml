@@ -12,14 +12,14 @@
         android:background="@color/colorPrimary"
         android:padding="10dp"
         android:gravity="center"
-        android:textSize="22sp"
+        android:textSize="25dp"
         android:textColor="#FFF" />
 
     <TextView
         android:padding="10dp"
         android:id="@+id/lbl_categoria"
         android:text="@string/lbl_categoria"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,6 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="17sp"
+            android:hint="@string/lbl_nombre"
             android:textAlignment="center"
             android:inputType="textPersonName" />
 
@@ -53,6 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
+        android:hint="@string/lbl_telefono"
         android:textColorHint="#FFF">
 
         <EditText
