@@ -7,4 +7,15 @@
 
     <string name="incio">Menu</string>
 
+
+    <string name="hello_world">Hello world!</string>
+
+    <string name="used">Used:</string>
+
+    <string name="free">Free:</string>
+
+    <string name="total">Total:</string>
+
+    <string name="free_space">393.89 MB</string>
+
 </resources>
