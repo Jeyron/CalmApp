@@ -206,12 +206,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Context context;
         entidad_sitio Sitio;
         GridView gridview_contenido;
+        cargar_contenido cargar_contenido;
         ArrayList<HashMap<String, String>> lista_contenido = new ArrayList<HashMap<String, String>>();
 
         public dialog_sitio(final Context context, entidad_sitio sitio) {
             super(context);
             this.context = context;
             Sitio = sitio;
+
         }
 
         @Override
@@ -232,6 +234,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 gridview_contenido.setColumnWidth(Math.round(px));
             }
 
+            cargar_contenido = new cargar_contenido();
+            cargar_contenido.execute();
+
             final datos_categoria datos_categoria = new datos_categoria();
 
             final ArrayList<entidad_categoria> lista_categorias = datos_categoria.obtener_categorias(context);
@@ -242,8 +247,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             final Spinner spn_categoria = findViewById(R.id.spn_categoria);
             final Button btn_sitio_1 = findViewById(R.id.btn_sitio_1);
             final Button btn_sitio_2 = findViewById(R.id.btn_sitio_2);
-            final Button btn_agregar = findViewById(R.id.btn_agregar_fotos);
-            final Button btn_importar = findViewById(R.id.btn_importar_fotos);
+            final android.support.design.widget.FloatingActionButton btn_agregar = findViewById(R.id.btn_agregar_fotos);
+            final android.support.design.widget.FloatingActionButton btn_importar = findViewById(R.id.btn_importar_fotos);
             final EditText txt_nombre = findViewById(R.id.txt_nombre);
             final EditText txt_telefono = findViewById(R.id.txt_telefono);
 
