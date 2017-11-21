@@ -33,7 +33,7 @@ public class Stats extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
 
-        batteryTxt = (TextView) this.findViewById(R.id.textView17);
+        batteryTxt = (TextView) this.findViewById(R.id.txt_nivel_bateria);
         this.registerReceiver(this.mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 
         /**
@@ -63,7 +63,7 @@ public class Stats extends AppCompatActivity {
         /**
          * USO DEL CPU
          */
-        TextView t2 = (TextView) findViewById(R.id.textView3);
+        TextView t2 = (TextView) findViewById(R.id.txt_dato_cpu);
         t2.setText(String.valueOf(cpuUsageAsInt[0])+"%");
 
         /**
@@ -71,7 +71,7 @@ public class Stats extends AppCompatActivity {
          */
         long tot = Runtime.getRuntime().totalMemory() / 1024;
         String total = String.valueOf(tot);
-        TextView t3 = (TextView) findViewById(R.id.textView15);
+        TextView t3 = (TextView) findViewById(R.id.txt_memoria_total);
         t3.setText(total+"MB");
 
         /**
@@ -79,7 +79,7 @@ public class Stats extends AppCompatActivity {
          */
         long tot2 = Runtime.getRuntime().freeMemory() / 1024;
         String total2 = String.valueOf(tot2);
-        TextView t4 = (TextView) findViewById(R.id.textView13);
+        TextView t4 = (TextView) findViewById(R.id.txt_memoria_libre);
         t4.setText(total2+"MB");
 
         /**
@@ -87,27 +87,27 @@ public class Stats extends AppCompatActivity {
          */
         long tot3 = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024;
         String total3 = String.valueOf(tot3);
-        TextView t5 = (TextView) findViewById(R.id.textView14);
+        TextView t5 = (TextView) findViewById(R.id.txt_memoria_ocupada);
         t5.setText(total3+"MB");
 
         /**
          * Extrae la versión del android del dispositivo
          */
         String myVersion = Build.VERSION.RELEASE;
-        TextView t6 = (TextView) findViewById(R.id.textView19);
+        TextView t6 = (TextView) findViewById(R.id.txt_version_so);
         t6.setText(myVersion);
 
 
         /**
          * Información del Almacenamiento Interno
          */
-        TextView free = (TextView) findViewById(R.id.textView25);
-        TextView use = (TextView) findViewById(R.id.textView26);
-        TextView Total = (TextView) findViewById(R.id.textView27);
+        TextView free = (TextView) findViewById(R.id.txt_interna_libre);
+        TextView use = (TextView) findViewById(R.id.txt_interna_ocupado);
+        TextView Total = (TextView) findViewById(R.id.txt_interno_total);
 
-        TextView free2 = (TextView) findViewById(R.id.textView31);
-        TextView use2 = (TextView) findViewById(R.id.textView32);
-        TextView Total2 = (TextView) findViewById(R.id.textView33);
+        TextView free2 = (TextView) findViewById(R.id.txt_externa_libre);
+        TextView use2 = (TextView) findViewById(R.id.txt_externo_ocupado);
+        TextView Total2 = (TextView) findViewById(R.id.txt_externo_total);
 
 
         /**
