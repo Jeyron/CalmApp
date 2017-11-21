@@ -37,12 +37,11 @@
                 android:id="@+id/txt_descripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/spn_lista_categoria"
                 android:inputType="textPersonName"
                 android:layout_marginTop="120dp"
                 android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/spn_lista_categoria"
-                android:layout_alignEnd="@+id/spn_lista_categoria" />
+                android:layout_alignStart="@+id/spn_lista_categorias"
+                android:layout_alignEnd="@+id/spn_lista_categorias" />
 
             <Button
                 android:id="@+id/btn_agregar_categoria"
@@ -97,7 +96,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="23dp"
                 android:layout_below="@+id/textView4"
-                android:layout_alignEnd="@+id/btn_guardar_categoria" />
+                android:layout_alignEnd="@+id/btn_guardar_categoria"
+                android:layout_alignStart="@+id/textView4" />
 
             <Button
                 android:id="@+id/btn_agregar_icono"
