@@ -35,6 +35,12 @@
 
     <string name="lbl_alma_externo">Alamacenamiento externo:</string>
 
+    <string name="lbl_agregar_sitio">Agregar sitio</string>
+    <string name="lbl_editar_sitio">Editar sitio</string>
+
+    <string name="lbl_categoria">Categoría</string>
+
+
 
 
 

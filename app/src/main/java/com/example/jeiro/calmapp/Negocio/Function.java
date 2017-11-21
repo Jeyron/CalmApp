@@ -4,6 +4,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 
+import com.example.jeiro.calmapp.R;
+
 /**
  * Created by SHAJIB on 7/16/2017.
  */
@@ -27,25 +29,25 @@ public class Function
         switch (categoria)
         {
             case 0:
-                return 1; // Supermercado
+                return R.drawable.supermercado;
             case 1:
-                return 2; // Banco
+                return R.drawable.banco;
             case 2:
-                return 3; // Hospital
+                return R.drawable.hospital;
             case 3:
-                return 4; // Restaurante
+                return R.drawable.comida;
             case 4:
-                return 5; // Paqueo
+                return R.drawable.parqueo;
             case 5:
-                return 6; // Aeropuerto
+                return R.drawable.aeropuerto;
             case 6:
-                return 7; // Tienda
+                return R.drawable.tienda;
             case 7:
-                return 8; // Puerto
+                return R.drawable.puerto;
             case 8:
-                return 9; // Parque
+                return R.drawable.parque;
             default:
-                return 10;// Monumento
+                return R.drawable.monumento;
         }
     }
 }

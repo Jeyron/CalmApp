@@ -1,4 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Calmapp</string>
+    <string name="app_name">CalmApp</string>
+    <string name="title_activity_navegacion">Navegation</string>
+    <string name="action_settings">Menu</string>
+
+    <string name="incio">Menu</string>
+
+    <string name="lbl_descripcion">Description:</string>
+
+    <string name="btn_agregar">Add</string>
+    <string name="btn_eliminar">Delete</string>
+    <string name="btn_guardar">Save</string>
+    <string name="lista_iconos">Icons list:</string>
+    <string name="lbl_comenzar">Star app</string>
+    <string name="derechos">All rights reserved</string>
+
+
+
+    <string name="lbl_cpu">CPU usage:</string>
+
+    <string name="lbl_memoria">Memory usage</string>
+    <string name="lbl_memoria_total">Total memory:</string>
+    <string name="lbl_memoria_usada">Used memory:</string>
+    <string name="lbl_memoria_libre">Free memory:</string>
+
+
+    <string name="lbl_bateria">Battery level:</string>
+    <string name="lbl_sistema_operativo">S.O version:</string>
+
+    <string name="lbl_alma_interno">Internal storage:</string>
+    <string name="lbl_almacenamiento_total">Total memory:</string>
+    <string name="lbl_almacenamiento_libre">Free memory:</string>
+    <string name="lbl_almacenamiento_usado">Used memory:</string>
+
+    <string name="lbl_alma_externo">External storage:</string>
+
+
+    <string name="lbl_agregar_sitio">Add site</string>
+    <string name="lbl_editar_sitio">Edit site</string>
+
+    <string name="lbl_categoria">Category</string>
 </resources>
