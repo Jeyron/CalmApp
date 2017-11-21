@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.jeiro.calmapp.BD.base_de_datos;
 import com.example.jeiro.calmapp.BD.tablas;
+import com.example.jeiro.calmapp.Modelo.entidad_categoria;
 import com.example.jeiro.calmapp.Modelo.entidad_contenido;
 
 import java.util.ArrayList;
@@ -95,5 +96,17 @@ public class datos_contenido
             return false;
         }
         return true;
+    }
+
+    public ArrayList<entidad_contenido> obtener_contenido_por_categoria (Context context, entidad_categoria categoria)
+    {
+        ArrayList<entidad_contenido> datos = obtener_contenidos(context);
+        ArrayList<entidad_contenido> resultado = new ArrayList<>();
+        for (entidad_contenido temp : datos)
+        {
+            if(temp.getTipo() == categoria.getId())
+                resultado.add(temp);
+        }
+        return resultado;
     }
 }

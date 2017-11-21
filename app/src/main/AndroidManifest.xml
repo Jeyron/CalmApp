@@ -20,8 +20,6 @@
             android:name=".Navegacion"
             android:label="@string/title_activity_navegacion"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Stats"/>
     </application>
 
 </manifest>

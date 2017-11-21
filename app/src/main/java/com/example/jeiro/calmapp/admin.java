@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import com.example.jeiro.calmapp.Datos.datos_categoria;
 import com.example.jeiro.calmapp.Datos.datos_contenido;
 import com.example.jeiro.calmapp.Modelo.entidad_categoria;
+import com.example.jeiro.calmapp.Modelo.entidad_contenido;
 
 import java.util.ArrayList;
 
@@ -70,9 +71,9 @@ public class admin extends Fragment {
         entidad_categoria entidad_categoria = datos_categoria.obtener_categoria(getActivity(), selected_item);
 
         datos_contenido datos_iconos = new datos_contenido();
-        ArrayList<entidad_categoria> lista_categorias = datos_categoria.obtener_categorias(getActivity());
-        String array_categorias[] = new String[lista_categorias.size()];
-        for (int i = 0; i < lista_categorias.size(); i++) array_categorias[i] = lista_categorias.get(i).getDescripcion();
+        ArrayList<entidad_contenido> lista_contenidos = datos_iconos.obtener_contenido_por_categoria(getActivity(), entidad_categoria);
+        String array_categorias[] = new String[lista_contenidos.size()];
+        for (int i = 0; i < lista_contenidos.size(); i++) array_categorias[i] = lista_contenidos.get(i).getNombre();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, array_categorias);
         spn_lista_categorias.setAdapter(adapter);
     }
@@ -81,7 +82,7 @@ public class admin extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_admin, container, false);
+        View v = inflater.inflate(R.layout.activity_categorias, container, false);
         btn_agregar_categoria = v.findViewById(R.id.btn_agregar_categoria);
         btn_eliminar_categoria = v.findViewById(R.id.btn_eliminar_categoria);
         btn_guardar_categoria = v.findViewById(R.id.btn_guardar_categoria);
