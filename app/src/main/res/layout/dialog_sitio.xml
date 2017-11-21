@@ -23,6 +23,7 @@
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:textColor="#909090" />
     <Spinner
         android:id="@+id/spn_categoria"
@@ -87,17 +88,16 @@
         android:gravity="center"
         android:layout_height="wrap_content">
 
-    <Button
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_agregar_fotos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:src="@mipmap/ic_camara"
-        android:background="@drawable/boton_redondeado"
-        android:textColor="#fff"
+        android:background="@color/colorAccent"
         android:textStyle="bold" />
 
-        <Button
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/btn_importar_fotos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

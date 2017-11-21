@@ -202,15 +202,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         dialog_sitio.show();
     }
 
-    class dialog_sitio extends Dialog
-    {
+    class dialog_sitio extends Dialog {
         Context context;
         entidad_sitio Sitio;
         GridView gridview_contenido;
         ArrayList<HashMap<String, String>> lista_contenido = new ArrayList<HashMap<String, String>>();
 
-        public dialog_sitio(final Context context, entidad_sitio sitio)
-        {
+        public dialog_sitio(final Context context, entidad_sitio sitio) {
             super(context);
             this.context = context;
             Sitio = sitio;
@@ -223,13 +221,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             setContentView(R.layout.dialog_sitio);
 
             gridview_contenido = findViewById(R.id.gridview_contenidos);
-            int iDisplayWidth = getResources().getDisplayMetrics().widthPixels ;
+            int iDisplayWidth = getResources().getDisplayMetrics().widthPixels;
             Resources resources = context.getApplicationContext().getResources();
             DisplayMetrics metrics = resources.getDisplayMetrics();
             float dp = iDisplayWidth / (metrics.densityDpi / 160f);
 
-            if(dp < 360)
-            {
+            if (dp < 360) {
                 dp = (dp - 17) / 2;
                 float px = Function.convertDpToPixel(dp, context.getApplicationContext());
                 gridview_contenido.setColumnWidth(Math.round(px));
@@ -239,31 +236,30 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             final ArrayList<entidad_categoria> lista_categorias = datos_categoria.obtener_categorias(context);
             String array_categorias[] = new String[lista_categorias.size()];
-            for (int i = 0; i < lista_categorias.size(); i++) array_categorias[i] = lista_categorias.get(i).getDescripcion();
+            for (int i = 0; i < lista_categorias.size(); i++)
+                array_categorias[i] = lista_categorias.get(i).getDescripcion();
 
-            final Spinner spn_categoria     = findViewById(R.id.spn_categoria);
-            final Button btn_sitio_1        = findViewById(R.id.btn_sitio_1);
-            final Button btn_sitio_2        = findViewById(R.id.btn_sitio_2);
-            final Button btn_agregar        = findViewById(R.id.btn_agregar_fotos);
-            final Button btn_importar       = findViewById(R.id.btn_importar_fotos);
-            final EditText txt_nombre       = findViewById(R.id.txt_nombre);
-            final EditText txt_telefono     = findViewById(R.id.txt_telefono);
+            final Spinner spn_categoria = findViewById(R.id.spn_categoria);
+            final Button btn_sitio_1 = findViewById(R.id.btn_sitio_1);
+            final Button btn_sitio_2 = findViewById(R.id.btn_sitio_2);
+            final Button btn_agregar = findViewById(R.id.btn_agregar_fotos);
+            final Button btn_importar = findViewById(R.id.btn_importar_fotos);
+            final EditText txt_nombre = findViewById(R.id.txt_nombre);
+            final EditText txt_telefono = findViewById(R.id.txt_telefono);
 
-            final TextView lbl_titulo       = findViewById(R.id.dialog_title_sitio);
+            final TextView lbl_titulo = findViewById(R.id.dialog_title_sitio);
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(context,android.R.layout.simple_list_item_1, array_categorias);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, array_categorias);
             spn_categoria.setAdapter(adapter);
 
             btn_sitio_2.setText(context.getResources().getString(R.string.btn_eliminar));
 
-            btn_sitio_1.setOnClickListener(new View.OnClickListener()
-            {
+            btn_sitio_1.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     boolean insertar = false;
 
-                    if(Sitio.getId() == 0)
+                    if (Sitio.getId() == 0)
                         insertar = true;
 
                     datos_categoria datos_categoria = new datos_categoria();
@@ -274,31 +270,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     if
                             (
                             txt_nombre.getText().toString().equals("") ||
-                            txt_telefono.getText().toString().equals("")
-                            )
-                    {
-                        Toast.makeText(context,"Error, campo vacío", Toast.LENGTH_SHORT).show();
+                                    txt_telefono.getText().toString().equals("")
+                            ) {
+                        Toast.makeText(context, "Error, campo vacío", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
-                    try
-                    {
+                    try {
                         Sitio.setTelefono(Integer.parseInt(txt_telefono.getText().toString()));
                         Sitio.setNombre(txt_nombre.getText().toString());
 
                         datos_sitio datos_sitio = new datos_sitio();
                         entidad_sitio temp = datos_sitio.obtener_sitio(context, txt_nombre.getText().toString());
 
-                        if(temp != null)
-                        {
+                        if (temp != null) {
                             Toast.makeText(context, "Error, nombre existente", Toast.LENGTH_SHORT).show();
                             return;
                         }
 
-                        if(datos_sitio.insertar_sitio(Sitio, insertar, context))
-                        {
+                        if (datos_sitio.insertar_sitio(Sitio, insertar, context)) {
                             Toast.makeText(context, "Éxito, sitio agregado", Toast.LENGTH_SHORT).show();
-                            LatLng p = new LatLng(Sitio.getLatitud(),Sitio.getLongitud());
+                            LatLng p = new LatLng(Sitio.getLatitud(), Sitio.getLongitud());
                             mapa.addMarker(new MarkerOptions()
                                     .position(p)
                                     .title(Sitio.getNombre())
@@ -334,61 +326,49 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                     .withValue(ContactsContract.CommonDataKinds.Phone.NUMBER, txt_telefono.getText().toString())
                                     .withValue(ContactsContract.CommonDataKinds.Phone.TYPE, ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE)
                                     .build());
-                            try{
+                            try {
                                 // Executing all the insert operations as a single database transaction
                                 getContentResolver().applyBatch(ContactsContract.AUTHORITY, ops);
                                 Toast.makeText(getBaseContext(), "Contacto agregado", Toast.LENGTH_SHORT).show();
                                 dismiss();
-                            }catch (RemoteException | OperationApplicationException e) {
+                            } catch (RemoteException | OperationApplicationException e) {
                                 e.printStackTrace();
                             }
                         }
-                    }
-                    catch (Exception e)
-                    {
-                        Toast.makeText(context,"Error, " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Toast.makeText(context, "Error, " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                     dismiss();
                 }
             });
-
-            btn_agregar.setOnClickListener(new View.OnClickListener()
-            {
+            btn_agregar.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
-                    Intent intent= new Intent(context, Obtener.class);
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, Obtener.class);
                     startActivity(intent);
                 }
             });
 //*
-            btn_sitio_2.setOnClickListener(new View.OnClickListener()
-            {
+            btn_sitio_2.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
-                    try
-                    {
+                public void onClick(View v) {
+                    try {
                         datos_sitio datos_sitio = new datos_sitio();
                         entidad_sitio temp = datos_sitio.obtener_sitio(context, txt_nombre.getText().toString());
 
-                        if(temp != null)
-                        {
+                        if (temp != null) {
                             Toast.makeText(context, "Error, nombre existente", Toast.LENGTH_SHORT).show();
                             return;
                         }
 
-                        if(datos_sitio.eliminar_sitio(Sitio, context))
-                        {
+                        if (datos_sitio.eliminar_sitio(Sitio, context)) {
                             Toast.makeText(context, "Éxito, sitio eliminado", Toast.LENGTH_SHORT).show();
                             mapa.clear();
                             swap2 = 1;
                             ver_sitios(null);
                         }
-                    }
-                    catch (Exception e)
-                    {
-                        Toast.makeText(context,"Error, " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Toast.makeText(context, "Error, " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                     dismiss();
                 }
@@ -396,23 +376,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             });
 
 
-
-            if(Sitio.getId() == 0)
-            {
+            if (Sitio.getId() == 0) {
                 btn_sitio_1.setText(context.getResources().getString(R.string.btn_agregar));
                 lbl_titulo.setText(context.getResources().getString(R.string.lbl_agregar_sitio));
                 btn_sitio_2.setVisibility(View.GONE);
-            }
-            else
-            {
+            } else {
                 btn_sitio_1.setText(context.getResources().getString(R.string.btn_guardar));
                 lbl_titulo.setText(context.getResources().getString(R.string.lbl_editar_sitio));
                 btn_sitio_2.setVisibility(View.VISIBLE);
                 entidad_categoria entidad_categoria = datos_categoria.obtener_categoria_por_id(context, Sitio.getCategoria());
-                for(int i = 0; i < array_categorias.length; i++)
-                {
-                    if(entidad_categoria.getDescripcion().equals(array_categorias[i]))
-                    {
+                for (int i = 0; i < array_categorias.length; i++) {
+                    if (entidad_categoria.getDescripcion().equals(array_categorias[i])) {
                         spn_categoria.setSelection(i);
                         break;
                     }
@@ -422,7 +396,61 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             //*/
         }
+
+        class cargar_contenido extends AsyncTask<String, Void, String> {
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                lista_contenido.clear();
+            }
+
+            /**
+             * Se ejecuta en segundo plano, permite cargar los datos de los períodos
+             * Sin entradas obligatorias, sin salida de parémetros, sin restricciones
+             * @param args
+             * @return
+             */
+            protected String doInBackground(String... args)
+            {
+                datos_contenido datos_contenido = new datos_contenido();
+                ArrayList<entidad_contenido> datos = datos_contenido.obtener_contenido_por_sitio(context, Sitio);
+                for (entidad_contenido temp : datos)
+                {
+                    HashMap<String, String> map = new HashMap<String, String>();
+                    map.put("n", temp.getNombre());
+                    lista_contenido.add(map);
+                }
+                return "";
+            }
+
+            /**
+             * Se ejecuta luego de acabar en background, configura el adaptador en el gridview y establece eventos
+             * Sin entradas por parte del programador
+             * Sin salida de parámetros y sin restricciones
+             */
+            @Override
+            protected void onPostExecute(String xml)
+            {
+                adaptador_images adapter = new adaptador_images((Activity) context, lista_contenido);
+                gridview_contenido.setAdapter(adapter);
+                //*
+                gridview_contenido.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                {
+                    public void onItemClick(AdapterView<?> parent, View view, final int position, long id)
+                    {
+                            Intent intent = new Intent(context, Visualizar.class);
+                            intent.putExtra("path",MainActivity.rutaProyecto + File.separator + lista_contenido.get(position).get("n"));
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        //*/
+                    }
+                });
+                //*/
+            }
+        }
     }
+
+
 
     class adaptador_images extends BaseAdapter
     {
